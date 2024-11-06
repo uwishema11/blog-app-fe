@@ -15,7 +15,6 @@ export const addBlog = async (data: createBlogData) => {
   return response.data;
 };
 
-
 // export const fetchBlogs = async () => {
 //   try {
 //     const response = await fetch("http://localhost:3000/api/blogs");
@@ -34,16 +33,17 @@ export const addBlog = async (data: createBlogData) => {
 //   }
 // };
 
-
 export const fetchBlogs = async () => {
-  const response = await axios.get("http://localhost:4000/api/blogs");
+  const response = await axios.get(`${process.env.API_URL}/api/blogs`);
   if (response.status !== 200) {
     throw new Error("Failed to fetch data");
   }
   return response.data;
 };
 export const fetchSingleBlog = async (blogId: string) => {
-  const response = await axios.get(`http://localhost:4000/api/blogs/${blogId}`);
+  const response = await axios.get(
+    `${process.env.API_URL}/api/blogs/${blogId}`
+  );
   if (response.status !== 200) {
     throw new Error("Failed to fetch data");
   }
@@ -52,7 +52,7 @@ export const fetchSingleBlog = async (blogId: string) => {
 export const deleteBlog = async (blogId: string) => {
   console.log(blogId);
   const response = await axios.delete(
-    `http://localhost:4000/api/blogs/delete/${blogId}`
+    `${process.env.API_URL}/api/blogs/delete/${blogId}`
   );
   if (response.status !== 200) {
     throw new Error("Failed to delete a blog");
@@ -62,7 +62,7 @@ export const deleteBlog = async (blogId: string) => {
 
 export const editBlog = async (data: editBlogData) => {
   const response = await axios.patch(
-    `http://localhost:4000/api/blogs/update/${data.id}`,
+    `${process.env.API_URL}/api/blogs/update/${data.id}`,
     data,
     {
       headers: { "Content-Type": "application/json" },

@@ -1,4 +1,4 @@
-import React from "react";
+import Image from "next/image";
 import {
   Card,
   CardContent,
@@ -23,9 +23,11 @@ const BlogCard: React.FC<BlogCardProps> = ({ blog }) => {
   return (
     <Card className="w-full">
       <CardHeader>
-        <img
-          src={`https://www.searchenginejournal.com/wp-content/uploads/2020/08/7-ways-a-blog-can-help-your-business-right-now-5f3c06b9eb24e.png`}
+        <Image
+          src={`https://searchenginejournal.com/wp-content/uploads/2020/08/7-ways-a-blog-can-help-your-business-right-now-5f3c06b9eb24e.png`}
           alt={blog.title}
+          width={300}
+          height={300}
           className="h-64 w-full object-cover"
         />
         <CardTitle className="text-2xl mt-4">{blog.title}</CardTitle>
