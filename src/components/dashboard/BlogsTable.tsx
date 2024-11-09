@@ -109,8 +109,7 @@ function BlogsTable() {
   function handleFormSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
 
-  
-    const validation = blogSchema.safeParse({ title, content })
+    const validation = blogSchema.safeParse({ title, content });
     if (!validation.success) {
       const errors = validation.error.flatten().fieldErrors;
       setFormErrors({
@@ -131,7 +130,6 @@ function BlogsTable() {
         }
       );
     } else {
-      console.log(blogDatas);
       createBlogMutation.mutate(blogDatas, {
         onSuccess: () => console.log("Blog created"),
         onError: (error) => console.log(error),
@@ -155,6 +153,10 @@ function BlogsTable() {
     {
       accessorKey: "createdAt",
       header: "Date Published",
+      cell: ({ row }) => {
+        const date = new Date(row.original.createdAt);
+        return date.toLocaleDateString("en-CA");
+      },
     },
     {
       header: "Actions",

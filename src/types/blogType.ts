@@ -8,7 +8,7 @@ export interface blogData {
     firstName: string;
   };
   expireDate?: string;
-  createdAt?: string;
+  createdAt: string;
   updatedAt?: string;
 }
 export interface createBlogData {

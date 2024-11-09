@@ -19,14 +19,12 @@ function BlogsComponent() {
     return <span>Loading...</span>;
   }
   if (isError) {
-    console.log(`this is fecthng error${error.message}`)
-    return <span>Error: {error.message}</span>;
+    return <span>{error.message}</span>;
   }
 
- 
   const list = data?.result?.data;
 
-  if (!list) {
+  if (list.length === 0) {
     return <span>No data available</span>;
   }
   return (
