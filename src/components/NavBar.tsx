@@ -21,7 +21,7 @@ const Navbar = () => {
           <Avatar className="hover:scale-105 transform transition duration-300">
             <AvatarImage src="" alt="Profile" />
             <AvatarFallback className="bg-gray-700 text-gray-200">
-              CN
+              CND
             </AvatarFallback>
           </Avatar>
         </div>
